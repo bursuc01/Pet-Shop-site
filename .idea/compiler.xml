@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PetShop" />
-        <module name="PetShop (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
