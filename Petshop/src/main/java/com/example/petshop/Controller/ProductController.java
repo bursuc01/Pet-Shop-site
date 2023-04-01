@@ -20,21 +20,21 @@ public class ProductController
         return "Hello";
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getProduct")
     public List<Product> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/product")
+    @PostMapping("/createProduct")
     public Product newProduct(@RequestBody Product newProduct) {
         return repository.save(newProduct);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/deleteProduct")
     public void deleteProduct(@RequestBody int id) {
         repository.deleteById(id);
     }
 
-    @PutMapping("/put")
+    @PutMapping("/putProduct")
     public Product updateProduct(@RequestBody Product newProduct){return repository.save(newProduct);}
 }

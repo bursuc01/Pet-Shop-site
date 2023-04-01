@@ -1,29 +1,32 @@
 package com.example.petshop.Model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.Date;
 
 @Entity
-@Table(name = "Product")
+@Table(name = "Orders")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Product {
+public class Order {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "quantity")
-    private int quantity;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "price")
-    private double price;
+    @Column(name = "date")
+    private String date;
+
+    @Column(name = "details")
+    private String details;
+
+    @Column(name = "totalPrice")
+    private double totalPrice;
+
 
 }
