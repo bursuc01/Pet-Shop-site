@@ -20,6 +20,7 @@ public class Update implements Subject {
 
     @Override
     public void notifyObservers(Integer qty) {
+        System.out.println("I am here 3");
         for (CustomObserver customObserver : observers) {
             ((CustomObserver) customObserver).update(qty);
         }

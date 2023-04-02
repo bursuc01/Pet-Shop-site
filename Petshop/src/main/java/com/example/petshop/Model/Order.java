@@ -34,11 +34,22 @@ public class Order extends Update {
             mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private Map<Integer, Product> items;
+    private Map<Integer, Product> items = new TreeMap<>();
 
+    /**
+     *
+     * @param qty
+     * @param product
+     *
+     *  This is a method that lets you add a product to the order by modifying quantity in the
+     *  product itself and putting the product in the Map attribute of the Order class.
+     */
     public void addProduct(int qty, Product product){
         if(product.getQuantity() > qty){
+            System.out.println("I am here2");
             this.items.put(qty, product);
+            System.out.println(items.get(qty).getId());
+            registerObserver(product);
             notifyObservers(qty);
         }
     }

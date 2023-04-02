@@ -33,12 +33,23 @@ public class Product implements CustomObserver {
     @JoinColumn(name = "order_id")
     private Order order;
 
+    /**
+     *
+     * @param arg
+     *
+     *  This method works on the Observer design pattern, and updates the quantity of the object once it's added to
+     *  an order.
+     */
     @Override
     public void update(Object arg) {
+        System.out.println("I am here 4");
         if (arg instanceof Integer) {
+            System.out.println("I am here 5");
             int qty = (Integer) arg;
-            if (this.quantity > qty)
-                this.quantity -= qty;
+            if (this.quantity > qty) {
+                setQuantity(this.quantity-qty);
+                System.out.println(this.quantity + " this is it");
+            }
             else
                 this.quantity = 0;
         }
