@@ -1,9 +1,12 @@
 package com.example.petshop.Model;
+import com.example.petshop.Observer.CustomObserver;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Observable;
 
 @Entity
 @Table(name = "Product")
@@ -11,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Product {
+public class Product implements CustomObserver {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +30,18 @@ public class Product {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name="order_id")
+    @JoinColumn(name = "order_id")
     private Order order;
 
+    @Override
+    public void update(Object arg) {
+        if (arg instanceof Integer) {
+            int qty = (Integer) arg;
+            if (this.quantity > qty)
+                this.quantity -= qty;
+            else
+                this.quantity = 0;
+        }
+
+    }
 }

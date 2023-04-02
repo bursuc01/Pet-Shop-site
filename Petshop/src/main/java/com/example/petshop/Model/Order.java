@@ -1,14 +1,13 @@
 package com.example.petshop.Model;
 
+import com.example.petshop.Observer.Update;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "Orders")
@@ -16,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Order {
+public class Order extends Update {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +34,13 @@ public class Order {
             mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<Product> items = new ArrayList<>();
+    private Map<Integer, Product> items;
 
+    public void addProduct(int qty, Product product){
+        if(product.getQuantity() > qty){
+            this.items.put(qty, product);
+            notifyObservers(qty);
+        }
+    }
 
 }

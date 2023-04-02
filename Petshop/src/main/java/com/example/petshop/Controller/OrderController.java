@@ -1,7 +1,9 @@
 package com.example.petshop.Controller;
 
 import com.example.petshop.Model.Order;
+import com.example.petshop.Model.Product;
 import com.example.petshop.Repository.OrderRepository;
+import com.example.petshop.Repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,13 +11,19 @@ import java.util.List;
 @RestController
 public class OrderController {
     private final OrderRepository repository;
+    private final ProductRepository productRepository;
+    private Order order = new Order();
 
-    public OrderController(OrderRepository repository) {
+    public OrderController(OrderRepository repository, ProductRepository productRepository) {
         this.repository = repository;
+        this.productRepository = productRepository;
     }
 
-//    @RequestMapping("/addToOrder")
-//    public void addToOrder(@RequestBody int id){}
+    @RequestMapping("/addToOrder")
+    public void addToOrder(@RequestBody int qty, int id) {
+        if (productRepository.findById(id).isPresent())
+            order.addProduct(qty, productRepository.findById(id).get());
+    }
 
     @GetMapping("/getOrder")
     public List<Order> all() {
