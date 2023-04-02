@@ -13,19 +13,14 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Order {
+public class ShoppingCart {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "date")
-    private String date;
+    @Column(name = "totalPrice")
+    private double totalPrice;
 
-    @Column(name = "details")
-    private String details;
-
-    @Column(name = "orderQuantity")
-    private int orderQuantity;
 
 }
