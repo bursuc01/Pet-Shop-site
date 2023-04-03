@@ -1,12 +1,11 @@
 package com.example.petshop.Model;
 import com.example.petshop.Observer.CustomObserver;
+import com.example.petshop.Repository.ProductRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Observable;
 
 @Entity
 @Table(name = "Product")
@@ -46,13 +45,7 @@ public class Product implements CustomObserver {
         if (arg instanceof Integer) {
             System.out.println("I am here 5");
             int qty = (Integer) arg;
-            if (this.quantity > qty) {
-                setQuantity(this.quantity-qty);
-                System.out.println(this.quantity + " this is it");
-            }
-            else
-                this.quantity = 0;
+            System.out.println(qty);
         }
-
     }
 }

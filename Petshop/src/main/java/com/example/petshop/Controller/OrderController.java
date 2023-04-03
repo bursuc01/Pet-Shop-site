@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderController {
     private final OrderRepository repository;
     private final ProductRepository productRepository;
-    private Order order = new Order();
+    private Order order;
 
     public OrderController(OrderRepository repository, ProductRepository productRepository) {
         this.repository = repository;
@@ -23,12 +23,29 @@ public class OrderController {
      *
      * @param id
      *
-     *  This method takes the id of the requested item and adds it to an existing order
+     *  This method takes the id of the requested item and adds it to an existing order by providing order id
      */
     @RequestMapping("/addToOrder")
-    public void addToOrder(@RequestBody int id) {
+    public void addToOrder(@RequestBody int id, int idOrder) {
+        if(repository.findById(idOrder).isPresent())
+            order = repository.findById(idOrder).get();
         if (productRepository.findById(id).isPresent()) {
             order.addProduct(order.getOrderQuantity(), productRepository.findById(id).get());
+            Product product = productRepository.findById(id).get();
+            if(product.getQuantity() > order.getOrderQuantity()){
+                product.setQuantity(productRepository.findById(id).get().getQuantity()-order.getOrderQuantity());
+                order.getItems().put(order.getOrderQuantity(),product);
+                System.out.println("Items:");
+                System.out.println(order.getItems().get(order.getOrderQuantity()).getDescription());
+            }
+            else
+                if(product.getQuantity() == order.getOrderQuantity()) {
+                    product.setQuantity(0);
+                    order.getItems().put(order.getOrderQuantity(),product);
+                }
+                else
+                    System.out.println("Order not valid because quantity not available");
+            productRepository.save(product);
         }
     }
 

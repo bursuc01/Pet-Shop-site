@@ -46,7 +46,7 @@ public class Order extends Update {
      */
     public void addProduct(int qty, Product product){
         if(product.getQuantity() > qty){
-            System.out.println("I am here2");
+            System.out.println("I am here2 :" + qty);
             this.items.put(qty, product);
             System.out.println(items.get(qty).getId());
             registerObserver(product);
