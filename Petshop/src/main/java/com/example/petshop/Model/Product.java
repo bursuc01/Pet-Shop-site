@@ -17,7 +17,7 @@ public class Product implements CustomObserver {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer product_id;
 
     @Column(name = "quantity")
     private int quantity;

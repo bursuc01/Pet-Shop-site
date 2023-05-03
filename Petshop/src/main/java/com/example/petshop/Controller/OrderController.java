@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class manages the http requests for the order model. It can add, delete, update and get the existing values in the table
+ */
 @RestController
 public class OrderController {
     private final OrderRepository repository;
@@ -51,7 +54,7 @@ public class OrderController {
 
     /**
      *
-     * @return
+     * @return List<Order>
      *
      *  This method executes a get request and returns all available Orders
      */
@@ -63,12 +66,12 @@ public class OrderController {
     /**
      *
      * @param newOrder
-     * @return
+     * @return Order
      *
      *  This method executes a post request and creates a new Order
      */
     @PostMapping("/createOrder")
-    public Order newUser(@RequestBody Order newOrder) {
+    public Order newOrder(@RequestBody Order newOrder) {
         return repository.save(newOrder);
     }
 
@@ -79,17 +82,17 @@ public class OrderController {
      *  This method executes a delete request and deletes an existing Order
      */
     @DeleteMapping("/deleteOrder")
-    public void deleteUser(@RequestBody int id) {
+    public void deleteOrder(@RequestBody int id) {
         repository.deleteById(id);
     }
 
     /**
      *
      * @param newOrder
-     * @return
+     * @return Order
      *
      *  This method executes an update request and updates an existing Order
      */
     @PutMapping("/putOrder")
-    public Order updateUser(@RequestBody Order newOrder){return repository.save(newOrder);}
+    public Order updateOrder(@RequestBody Order newOrder){return repository.save(newOrder);}
 }

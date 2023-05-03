@@ -1,7 +1,9 @@
 package com.example.petshop.Observer;
 
 import java.util.ArrayList;
-
+/**
+ *  This class is used for the implementation of Observer design pattern in order to update some fields
+ */
 public class Update implements Subject {
     private ArrayList<CustomObserver> observers = new ArrayList<>();
 

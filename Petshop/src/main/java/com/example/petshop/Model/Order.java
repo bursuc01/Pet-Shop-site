@@ -19,7 +19,7 @@ public class Order extends Update {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer order_id;
 
     @Column(name = "date")
     private String date;
@@ -48,7 +48,7 @@ public class Order extends Update {
         if(product.getQuantity() > qty){
             System.out.println("I am here2 :" + qty);
             this.items.put(qty, product);
-            System.out.println(items.get(qty).getId());
+            System.out.println(items.get(qty).getProduct_id());
             registerObserver(product);
             notifyObservers(qty);
         }
