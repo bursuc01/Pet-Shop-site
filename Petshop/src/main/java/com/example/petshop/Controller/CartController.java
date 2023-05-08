@@ -30,7 +30,7 @@ public class CartController {
 
     /**
      *
-     * @param newCart
+     * @param newCart Cart
      * @return Cart
      *
      *  This method executes a post request and creates a new Cart
@@ -53,7 +53,7 @@ public class CartController {
 
     /**
      *
-     * @param newCart
+     * @param newCart Cart
      * @return Cart
      *
      *  This method executes an update request and updates an existing Cart

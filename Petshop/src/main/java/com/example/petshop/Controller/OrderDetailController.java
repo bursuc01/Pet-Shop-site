@@ -1,6 +1,5 @@
 package com.example.petshop.Controller;
 
-import com.example.petshop.Model.Cart;
 import com.example.petshop.Model.OrderDetail;
 import com.example.petshop.Repository.OrderDetailRepository;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +30,7 @@ public class OrderDetailController {
 
     /**
      *
-     * @param newOrderDetail
+     * @param newOrderDetail OrderDetail
      * @return OrderDetail
      *
      *  This method executes a post request and creates a new Order Detail
@@ -54,7 +53,7 @@ public class OrderDetailController {
 
     /**
      *
-     * @param newOrderDetail
+     * @param newOrderDetail OrderDetail
      * @return OrderDetail
      *
      *  This method executes an update request and updates an existing Order Detail

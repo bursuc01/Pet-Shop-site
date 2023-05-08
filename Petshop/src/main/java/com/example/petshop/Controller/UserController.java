@@ -1,6 +1,5 @@
 package com.example.petshop.Controller;
 
-import com.example.petshop.Model.Product;
 import com.example.petshop.Model.User;
 import com.example.petshop.Repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +30,7 @@ public class UserController {
 
     /**
      *
-     * @param newUser
+     * @param newUser User
      * @return User
      *
      *  This method executes a post request and creates a new User
@@ -54,7 +53,7 @@ public class UserController {
 
     /**
      *
-     * @param newUser
+     * @param newUser User
      * @return User
      *
      *  This method executes an update request and updates an existing User

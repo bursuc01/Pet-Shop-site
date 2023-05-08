@@ -31,7 +31,7 @@ public class ProductController
 
     /**
      *
-     * @param newProduct
+     * @param newProduct Product
      * @return Product
      *
      *  This method executes a post request and creates a new Product
@@ -54,7 +54,7 @@ public class ProductController
 
     /**
      *
-     * * @param newProduct
+     * * @param newProduct Product
      * @return Product
      *
      *  This method executes an update request and updates an existing Product

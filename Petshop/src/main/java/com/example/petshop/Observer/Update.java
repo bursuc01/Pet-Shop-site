@@ -24,7 +24,7 @@ public class Update implements Subject {
     public boolean notifyObservers(Integer qty) {
         System.out.println("I am here 3 " +qty);
         for (CustomObserver customObserver : observers) {
-            ((CustomObserver) customObserver).update(qty);
+            customObserver.update(qty);
         }
         return true;
     }

@@ -65,7 +65,7 @@ public class OrderController {
 
     /**
      *
-     * @param newOrder
+     * @param newOrder Order
      * @return Order
      *
      *  This method executes a post request and creates a new Order
@@ -88,7 +88,7 @@ public class OrderController {
 
     /**
      *
-     * @param newOrder
+     * @param newOrder Order
      * @return Order
      *
      *  This method executes an update request and updates an existing Order

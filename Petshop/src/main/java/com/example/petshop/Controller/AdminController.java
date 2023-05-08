@@ -32,7 +32,7 @@ public class AdminController {
 
     /**
      *
-     * @param newAdmin
+     * @param newAdmin Admin
      * @return Admin
      *
      *  This method executes a post request and creates a new Admin
@@ -57,7 +57,7 @@ public class AdminController {
 
     /**
      *
-     * @param newAdmin
+     * @param newAdmin Admin
      * @return Admin
      *
      *  This method executes an update request and updates an existing Admin

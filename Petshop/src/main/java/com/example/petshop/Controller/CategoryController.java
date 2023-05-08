@@ -31,7 +31,7 @@ public class CategoryController {
 
     /**
      *
-     * @param newCategory
+     * @param newCategory Category
      * @return Category
      *
      *  This method executes a post request and creates a new Category
@@ -55,7 +55,7 @@ public class CategoryController {
 
     /**
      *
-     * @param newCategory
+     * @param newCategory Category
      * @return Category
      *
      *  This method executes an update request and updates an existing Category

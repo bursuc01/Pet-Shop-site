@@ -103,8 +103,39 @@ We can find:
 ```
 
 I added some more endpoints that satisfy my specific needs like adding a Product to an Order. If a client wants to create an order, the site will automatically add the product selected to the order with an id that is processed automatically as well. 
-
-
-
-
- 
+# The Endpoints developed in my project:
+### User model:
+- Use GET to fetch all the Users.
+- Use POST to create a new User.
+- Use DELETE to delete an existing User.
+- Use PUT to update a speicif User.
+### Admin model:
+- Use GET to fetch all the Admins.
+- Use POST to create a new Admin.
+- Use DELETE to delete an existing Admin.
+- Use PUT to update a speicif Admin.
+### Cart model:
+- Use GET to fetch all the Carts.
+- Use POST to create a new Cart.
+- Use DELETE to delete an existing Cart.
+- Use PUT to update a speicif Cart.
+### Category model:
+- Use GET to fetch all the Categories.
+- Use POST to create a new Category.
+- Use DELETE to delete an existing Category.
+- Use PUT to update a speicif Category.
+### Order model:
+- Use GET to fetch all the Orders.
+- Use POST to create a new Order.
+- Use DELETE to delete an existing Order.
+- Use PUT to update a speicif Order.
+### Product model
+ - Use GET to fetch all the Products.
+- Use POST to create a new Product.
+- Use DELETE to delete an existing Product.
+- Use PUT to update a speicif Product.
+### Question model
+ - Use GET to fetch all the Questions.
+- Use POST to create a new Question.
+- Use DELETE to delete an existing Question.
+- Use PUT to update a speicif Question.

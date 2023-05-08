@@ -30,7 +30,7 @@ public class QuestionController {
 
     /**
      *
-     * @param newQuestion
+     * @param newQuestion Question
      * @return Question
      *
      *  This method executes a post request and creates a new Question
@@ -53,7 +53,7 @@ public class QuestionController {
 
     /**
      *
-     * @param newQuestion
+     * @param newQuestion Question
      * @return Question
      *
      *  This method executes an update request and updates an existing Question
