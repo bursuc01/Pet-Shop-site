@@ -1,7 +1,10 @@
 package com.example.petshop.Controller;
 
 import com.example.petshop.Model.User;
+import com.example.petshop.Model.response.FetchEntities;
 import com.example.petshop.Repository.UserRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +12,7 @@ import java.util.List;
 /**
  *  This class manages the http requests for the user model. It can add, delete, update and get the existing values in the table
  */
+
 @RestController
 public class UserController {
     private final UserRepository repository;
@@ -24,8 +28,10 @@ public class UserController {
      *  This method executes a get request and returns all available Users
      */
     @GetMapping("/getUser")
-    public List<User> all() {
-        return repository.findAll();
+    public ResponseEntity<FetchEntities<User>> all() {
+        FetchEntities<User> fetchEntities = new FetchEntities<>();
+        fetchEntities.setFetched(repository.findAll());
+        return new ResponseEntity<>(fetchEntities, HttpStatus.OK);
     }
 
     /**

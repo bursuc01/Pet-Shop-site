@@ -1,0 +1,99 @@
+.Login{
+    text-align: center;
+    background-image: url("bone.jpg");
+    background-color: #00eaff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: calc(10px + 2vmin);
+}
+
+.title-login {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="name"],
+input[type="address"],
+input[type="phone"]{
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+}
+
+.submit-button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bolder;
+    background: #01d28e;
+    border: 1px solid #01d28e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.submit-button:hover {
+    background: #6cf0c2;
+}
+
+.submit.button {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    margin-left: 350px;
+    margin-right: 350px;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+.list-container {
+    display: flex;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.submit-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link {
+    font-size: small;
+    color: inherit;
+}
+

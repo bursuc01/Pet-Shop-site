@@ -1,7 +1,11 @@
 package com.example.petshop.Controller;
 
+import com.example.petshop.Model.Product;
 import com.example.petshop.Model.Question;
+import com.example.petshop.Model.response.FetchEntities;
 import com.example.petshop.Repository.QuestionRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,10 +28,11 @@ public class QuestionController {
      *  This method executes a get request and returns all available Questions
      */
     @GetMapping("/getQuestion")
-    public List<Question> all() {
-        return repository.findAll();
+    public ResponseEntity<FetchEntities<Question>> all() {
+        FetchEntities<Question> fetchEntities = new FetchEntities<>();
+        fetchEntities.setFetched(repository.findAll());
+        return new ResponseEntity<>(fetchEntities, HttpStatus.OK);
     }
-
     /**
      *
      * @param newQuestion Question

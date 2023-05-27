@@ -18,10 +18,6 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer question_id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
-
     @Column(name = "question_text")
     private String questionText;
 

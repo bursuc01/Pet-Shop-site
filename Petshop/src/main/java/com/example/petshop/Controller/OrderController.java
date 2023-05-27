@@ -33,7 +33,7 @@ public class OrderController {
         if(repository.findById(idOrder).isPresent())
             order = repository.findById(idOrder).get();
         if (productRepository.findById(id).isPresent()) {
-            order.addProduct(order.getOrderQuantity(), productRepository.findById(id).get());
+            Order ord = order.addProduct(order.getOrderQuantity(), productRepository.findById(id).get());
             Product product = productRepository.findById(id).get();
             if(product.getQuantity() > order.getOrderQuantity()){
                 product.setQuantity(productRepository.findById(id).get().getQuantity()-order.getOrderQuantity());
@@ -48,10 +48,9 @@ public class OrderController {
                 }
                 else
                     System.out.println("Order not valid because quantity not available");
-            productRepository.save(product);
+            repository.save(ord);
         }
     }
-
     /**
      *
      * @return List<Order>

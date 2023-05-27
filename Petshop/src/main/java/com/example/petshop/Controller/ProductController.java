@@ -1,6 +1,10 @@
 package com.example.petshop.Controller;
 import com.example.petshop.Model.Product;
+import com.example.petshop.Model.User;
+import com.example.petshop.Model.response.FetchEntities;
 import com.example.petshop.Repository.ProductRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,10 +29,11 @@ public class ProductController
      *  This method executes a get request and returns all available Product
      */
     @GetMapping("/getProduct")
-    public List<Product> all() {
-        return repository.findAll();
+    public ResponseEntity<FetchEntities<Product>> all() {
+        FetchEntities<Product> fetchEntities = new FetchEntities<>();
+        fetchEntities.setFetched(repository.findAll());
+        return new ResponseEntity<>(fetchEntities, HttpStatus.OK);
     }
-
     /**
      *
      * @param newProduct Product
