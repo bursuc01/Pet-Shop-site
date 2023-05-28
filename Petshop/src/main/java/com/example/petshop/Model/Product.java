@@ -28,10 +28,6 @@ public class Product implements CustomObserver {
     @Column(name = "price")
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
     /**
      *
      * @param arg

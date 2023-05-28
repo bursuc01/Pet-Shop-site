@@ -2,19 +2,19 @@ import '../App'
 import '../CSS/App.css'
 import '../CSS/Shopping.css';
 import React, { useEffect, useState } from 'react'
-import {getUsers, getAdmins} from '../services/Login/Login'
+import {getUsers} from '../services/Login/Login'
 
 export default function LoginComp(){
     const [users, setUsers] = useState([]);
-    const [admins, setAdmins] = useState([]);
-    const [loggedUser, setLoggedUser] = useState(null)
 
-    useEffect(() => {
+    useEffect((users) => {
         getUsers((data) => {
             if(data !== null){
                 setUsers(data);
             }
         });
+        console.log(users);
+
     }, []);
 
         const [email, setEmail] = useState('');
@@ -37,8 +37,10 @@ export default function LoginComp(){
             if (isUserValid) {
                 // Store user information in local storage
                 localStorage.setItem('loggedInUser', JSON.stringify({loggedUser}));
+
                 window.location.href = '/';
-            } else {
+            } 
+            else {
                 window.location.href = '/Register';
             }
           };

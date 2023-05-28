@@ -4,11 +4,12 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import MainPage from "./MainPage";
 import Account from "./Account";
 import ShoppingComp from "./components/ShoppingComp";
-import Carts from "./Carts";
+import Carts from "./components/CartComp";
 import Success from "./Success";
 import Admin from "./Admin"
 import Login from "./components/LoginComp";
 import RegisterComp from "./components/RegisterComp"
+import QtyComp from "./components/QtyComp"
 
 function App() {
     return (
@@ -41,6 +42,9 @@ function App() {
                 </Routes>
                 <Routes>
                     <Route path="/Register" element={<RegisterComp />}></Route>
+                </Routes>
+                <Routes>
+                    <Route path="/Quantity" element={<QtyComp />}></Route>
                 </Routes>
             </BrowserRouter>
         </section>

@@ -1,13 +1,16 @@
 package com.example.petshop.Controller;
+import com.example.petshop.Model.Order;
 import com.example.petshop.Model.Product;
-import com.example.petshop.Model.User;
+import com.example.petshop.Model.ProductOrdered;
+import com.example.petshop.Model.response.AddToOrder;
 import com.example.petshop.Model.response.FetchEntities;
+import com.example.petshop.Repository.OrderRepository;
+import com.example.petshop.Repository.ProductOrderedRepository;
 import com.example.petshop.Repository.ProductRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 /**
@@ -17,9 +20,13 @@ import java.util.List;
 public class ProductController
 {
     private final ProductRepository repository;
+    private final OrderRepository orderRepository;
+    private final ProductOrderedRepository productOrderedRepository;
 
-    public ProductController(ProductRepository repository) {
+    public ProductController(ProductRepository repository, OrderRepository orderRepository, ProductOrderedRepository productOrderedRepository) {
         this.repository = repository;
+        this.orderRepository = orderRepository;
+        this.productOrderedRepository = productOrderedRepository;
     }
 
     /**
@@ -66,4 +73,32 @@ public class ProductController
      */
     @PutMapping("/putProduct")
     public Product updateProduct(@RequestBody Product newProduct){return repository.save(newProduct);}
+
+    /**
+     *
+     * @param addToOrder
+     *
+     *  This method takes the id of the requested item and adds it to an existing order by providing order id
+     */
+    @PostMapping("/addToOrder")
+    public void addToOrder(@RequestBody AddToOrder addToOrder) throws Exception {
+        int qty = addToOrder.getQty();
+        int id = addToOrder.getProduct_id();
+        int idOrder = addToOrder.getOrder_id();
+        Order order;
+        Product product;
+        if(orderRepository.findById(idOrder).isPresent() && repository.findById(id).isPresent()){
+            order = orderRepository.findById(idOrder).get();
+            product = repository.findById(id).get();
+            if(product.getQuantity() - qty >= 0) {
+                product.setQuantity(product.getQuantity() - qty);
+                productOrderedRepository.save(new ProductOrdered(qty, order.getOrder_id(), product.getProduct_id()));
+                order.setTotalPrice(order.getTotalPrice() + product.getPrice() * qty);
+                orderRepository.save(order);
+            }
+            else {
+                throw new Exception("Not enough in stock");
+            }
+        }
+    }
 }
