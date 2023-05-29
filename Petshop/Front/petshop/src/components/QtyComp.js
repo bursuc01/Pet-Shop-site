@@ -22,20 +22,19 @@ export default function InputPage() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const productSelected = JSON.parse(localStorage.getItem("productSelected"));
-    const productSelectedId = productSelected ? productSelected.product_id : null;
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    const loggedInUserId = loggedInUser ? loggedInUser.user_id : null;
 
-    console.log(productSelected.product_id);
-    console.log(loggedInUser.user_id);
-    const order = cart.find((item) => item.client_id === loggedInUserId);
+    console.log(productSelected);
+    console.log(loggedInUser);
+    const order = cart.find((item) => item.client_id === loggedInUser.loggedUser.user_id);
 
     if (order) {
-      addProductToOrder(order.order_id, productSelectedId, inputValue);
+      addProductToOrder(order.order_id, productSelected.productSelected.product_id, inputValue);
     } else {
-      createOrder(inputValue, "test", new Date(), loggedInUserId);
-      addProductToOrder(loggedInUserId, productSelectedId, inputValue);
+      createOrder(inputValue, "test", new Date(), loggedInUser.loggedUser.user_id);
+      addProductToOrder(loggedInUser.loggedUser.user_id, productSelected.productSelected.product_id, inputValue);
     }
+
   };
 
   return (

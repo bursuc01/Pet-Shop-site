@@ -43,11 +43,6 @@ export default function Navbar() {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="submit-link" href="/Admin">
-                                        Add Product
-                                    </a>
-                                </li>
-                                <li className="nav-item">
                                     <a className="submit-link" href="/Login " onClick={handleLogout}>
                                         Logout
                                     </a>

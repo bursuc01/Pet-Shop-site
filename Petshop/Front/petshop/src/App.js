@@ -6,7 +6,6 @@ import Account from "./Account";
 import ShoppingComp from "./components/ShoppingComp";
 import Carts from "./components/CartComp";
 import Success from "./Success";
-import Admin from "./Admin"
 import Login from "./components/LoginComp";
 import RegisterComp from "./components/RegisterComp"
 import QtyComp from "./components/QtyComp"
@@ -33,9 +32,6 @@ function App() {
                 </Routes>
                 <Routes>
                     <Route path="/Success" element={<Success />}></Route>
-                </Routes>
-                <Routes>
-                    <Route path="/Admin" element={<Admin />}></Route>
                 </Routes>
                 <Routes>
                     <Route path="/Login" element={<Login />}></Route>

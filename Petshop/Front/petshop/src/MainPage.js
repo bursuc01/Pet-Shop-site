@@ -7,9 +7,9 @@ import instagram from './Images/Instagram-Icon.png'
 import youtube from './Images/Youtube-Icon.png'
 
 export default function MainPage(){
+    console.log(localStorage)
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    console.log(loggedInUser)
-    
+     
     return(
         <div className="App">
             <div className="mainpage">
@@ -19,7 +19,7 @@ export default function MainPage(){
                 <div className="transparent-container">
                     <h1>
                         {loggedInUser ? (
-                            `Welcome to THE PETSHOP, ${loggedInUser.name}`
+                            `Welcome to THE PETSHOP,  ${loggedInUser.loggedUser.name}`
                         ) : (
                             "Welcome to THE PETSHOP"
                         )}
