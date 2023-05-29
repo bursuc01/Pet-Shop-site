@@ -14,7 +14,7 @@ export default function Account() {
   const handleLogout = () => {
     // Clear user session or token
     localStorage.removeItem('loggedInUser');
-    window.location.href = '/MainPage';
+    window.location.href = '/';
   };
 
   return (
